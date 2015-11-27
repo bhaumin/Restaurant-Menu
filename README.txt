@@ -30,6 +30,13 @@ You need to have installed python 2.7.6 and SqlAlchemy 0.8.4 in your machine.
 2 - Run the command line "python finalProject.py" which will run the web application on port 5000.
 3 - Open the browser and go to "http://localhost:5000/", this will open the restaurant menu application.
 4 - You should be able to add/edit/modify restaurants and their corresponding menu items.
+5 - API Endpoints:
+	a. Get all restaurants
+		http://localhost:5000/restaurants/JSON
+	b. Get all menu items of a given restaurant
+		http://localhost:5000/restaurant/{restaurant_id}/menu/JSON
+	c. Get a particular menu item
+		http://localhost:5000/restaurant/{restaurant_id}/menu/{menu_id}/JSON
 
 
 Copyright: Udacity
