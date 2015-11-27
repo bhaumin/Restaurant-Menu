@@ -16,7 +16,10 @@ It contains the following files.
 4 - static/styles.css
 	This file contains the CSS/Styling for this web application
 
-5 - README.txt
+5 - restaurantmenu.db
+	This is the database file
+
+6 - README.txt
 
 
 How to run the application.
