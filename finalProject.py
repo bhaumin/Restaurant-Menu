@@ -111,8 +111,14 @@ def deleteMenuItem(restaurant_id, menu_id):
 		return render_template('deletemenuitem.html', restaurant_id = restaurant_id, menu_id = menu_id, item = itemToDelete)
 
 
+# 9. API Endpoint for all restaurants
+@app.route('/restaurants/JSON')
+def restaurantsJSON():
+	restaurants = session.query(Restaurant).all()
+	return jsonify(Restaurants=[restaurant.serialize for restaurant in restaurants])
 
-# Making an API Endpoint (GET Request) for all menu items
+
+# 10. API Endpoint for all menu items of a given restaurant
 @app.route('/restaurant/<int:restaurant_id>/menu/JSON')
 def restaurantMenuJSON(restaurant_id):
 	restaurant = session.query(Restaurant).filter_by(id = restaurant_id).one()
@@ -120,7 +126,7 @@ def restaurantMenuJSON(restaurant_id):
 	return jsonify(MenuItems=[i.serialize for i in items])
 
 
-# Making an API Endpoint (GET Request) for the requested menu item
+# 11. API Endpoint for a given menu item
 @app.route('/restaurant/<int:restaurant_id>/menu/<int:menu_id>/JSON')
 def getMenuItemJSON(restaurant_id, menu_id):
 	item = session.query(MenuItem).filter_by(restaurant_id = restaurant_id, id = menu_id).one()
